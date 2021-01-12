@@ -7,6 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Pessoa implements Serializable {
@@ -17,18 +21,25 @@ public class Pessoa implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long idPessoa;
 	
+	@NotNull(message = "Nome é obrigatório")
+	@NotBlank(message = "Nome é obrigatório")
 	private String nome;
 	
 	private String sexo;
 	
+	@Email
 	private String email;
 	
+	@NotNull(message = "Data de Nascimento é obrigatória")
+	@Future(message = "Insira uma data válida" )
 	private Date dataNascimento;
 	
 	private String naturalidade;
 	
 	private String nacionalidade;
 	
+	@NotNull(message = "CPF é obrigatório")
+	@NotBlank(message = "CPF é obrigatório")
 	private String cpf;
 	
 	private Date dataCadastro;
