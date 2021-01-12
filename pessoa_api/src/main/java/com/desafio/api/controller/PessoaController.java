@@ -61,5 +61,10 @@ public class PessoaController {
 		return pessoaService.delete(id);
     }
 
+	@ApiOperation(value = "Retorna url github.")
+	@RequestMapping(value = "/source", method = RequestMethod.GET)
+    public String getSource() {
+        return "https://github.com/LariSantin/pessoa_crud";
+    }
 
 }
